@@ -13,28 +13,21 @@ import java.util.Date;
 @NonNull
 @NoArgsConstructor
 @Entity
-@Table(name="clientes")
-public class Cliente {
+@Table(name="proveedores")
+public class Proveedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_cliente")
-    private Integer idCliente;
+    @Column(name="id_proveedor")
+    private Integer idProveedor;
 
-    private String codigo;
-
-    private String nombres;
-
-    private String apellidos;
-
-    private String genero;
-
-    @Column(name="fecha_nacimiento")
-    private Date fechaNacimiento;
-
-    private String telefono;
+    private String nombre;
 
     private String direccion;
 
     private String email;
+
+    private String telefono;
+
+    private String estado;
 }

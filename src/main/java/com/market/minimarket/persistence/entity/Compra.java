@@ -1,25 +1,26 @@
 package com.market.minimarket.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
+import java.time.LocalDateTime;
 
-import java.util.Date;
-
-@Entity
-@Getter
 @Setter
+@Getter
+@NonNull
+@NoArgsConstructor
+@Entity
 @Table(name = "compras")
-public class Compras {
+public class Compra {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_compra")
     private Integer idCompra;
 
-    private Date fecha;
+    private LocalDateTime fecha;
 
     @Column(name="metodo_pago")
     private String metodoPago;
