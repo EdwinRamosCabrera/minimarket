@@ -21,8 +21,8 @@ public class Producto {
 
     private String nombre;
 
-    @Column(name="codigo_barra")
-    private String codigoBarra;
+    @Column(name="codigo_barras")
+    private String codigoBarras;
 
     @Column(name="precio_venta")
     private Double precioVenta;

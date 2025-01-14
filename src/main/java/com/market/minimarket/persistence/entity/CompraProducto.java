@@ -31,5 +31,5 @@ public class CompraProducto {
 
     @ManyToOne
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
-    private CompraProducto compraProducto;
+    private Compra compra;
 }

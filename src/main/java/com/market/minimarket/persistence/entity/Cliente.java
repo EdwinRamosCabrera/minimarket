@@ -35,9 +35,7 @@ public class Cliente {
 
     private String telefono;
 
-    private String direccion;
-
-    private String email;
+    private String correo;
 
     @OneToMany(mappedBy = "cliente")
     private List<Compra> listCompras;
