@@ -21,8 +21,8 @@ public class Producto {
 
     private String nombre;
 
-    @Column(name="codigo_barra")
-    private String codigoBarra;
+    @Column(name="codigo_barras")
+    private String codigoBarras;
 
     @Column(name="precio_venta")
     private Double precioVenta;
@@ -36,4 +36,12 @@ public class Producto {
 
     @Column(name="id_proveedor")
     private String idProveedor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "id_proveedor", insertable = false, updatable = false)
+    private Proveedor proveedor;
 }

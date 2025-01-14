@@ -7,6 +7,7 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -23,11 +24,14 @@ public class Proveedor {
 
     private String nombre;
 
-    private String direccion;
-
     private String email;
 
     private String telefono;
 
+    private String direccion;
+
     private String estado;
+
+    @OneToMany(mappedBy = "proveedor")
+    private List<Producto> listProductos;
 }
