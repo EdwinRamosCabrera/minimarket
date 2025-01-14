@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @NonNull
@@ -22,5 +24,8 @@ public class Categoria {
     private String nombre;
 
     private String estado;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> listProductos;
 
 }

@@ -7,6 +7,7 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -30,4 +31,7 @@ public class Proveedor {
     private String telefono;
 
     private String estado;
+
+    @OneToMany(mappedBy = "proveedor")
+    private List<Producto> listProduct;
 }

@@ -36,4 +36,12 @@ public class Producto {
 
     @Column(name="id_proveedor")
     private String idProveedor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "id_proveedor", insertable = false, updatable = false)
+    private Proveedor proveedor;
 }

@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+
+import java.security.PrivateKey;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -31,5 +34,12 @@ public class Compra {
 
     @Column(name="id_cliente")
     private Integer idCliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "compraProducto")
+    private List<CompraProducto> ListCompraProducto;
 
 }
