@@ -20,6 +20,8 @@ public class Purchase {
 
     private String paymentMethod;
 
+    private double amount;
+
     private String comment;
 
     private String status;

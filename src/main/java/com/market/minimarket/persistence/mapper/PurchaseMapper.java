@@ -11,22 +11,23 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = ClientMapper.class)
+@Mapper(componentModel = "spring", uses = {ClientMapper.class})
 public interface PurchaseMapper {
 
     @Mappings({
             @Mapping(source="idCompra", target="idPurchase"),
             @Mapping(source="fecha", target="date"),
             @Mapping(source="metodoPago", target="paymentMethod"),
+            @Mapping(source="monto", target="amount"),
             @Mapping(source="comentario", target="comment"),
             @Mapping(source="idCliente", target="idClient"),
-            @Mapping(source="Cliente", target="client"),
-            @Mapping(source="listCompraProducto", target="listPurchaseProduct"),
+            @Mapping(source="cliente", target="client")
     })
     Purchase toPurchase(Compra compra);
 
-    List<Purchase> listPurchases(List<Compra> listCompras);
+    List<Purchase> toListPurchases(List<Compra> listCompras);
 
     @InheritInverseConfiguration
+    @Mapping(target = "listCompraProducto", ignore = true)
     Compra toCompra(Purchase purchase);
 }

@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface SupplierMapper {
 
@@ -16,10 +18,12 @@ public interface SupplierMapper {
             @Mapping(source="telefono", target="phone"),
             @Mapping(source="direccion", target="address"),
             @Mapping(source="estado", target="status"),
-            @Mapping(source="listProductos", target="listProducts")
     })
     Supplier toSupplier(Proveedor proveedor);
 
+    List<Supplier> toSuppliers(List<Proveedor> listProveedores);
+
     @InheritInverseConfiguration
+    @Mapping(target = "listProductos", ignore = true)
     Proveedor toProveedor(Supplier supplier);
 }

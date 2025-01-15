@@ -28,6 +28,8 @@ public class Compra {
     @Column(name="metodo_pago")
     private String metodoPago;
 
+    private Double monto;
+
     private String comentario;
 
     private String estado;
