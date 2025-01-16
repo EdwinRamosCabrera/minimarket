@@ -17,11 +17,13 @@ public interface CategoryMapper {
     @Mappings({
         @Mapping(source="idCategoria", target="idCategory"),
         @Mapping(source="nombre", target="name"),
-        @Mapping(source="estado", target="status"),
-        @Mapping(source="listProductos", target="listProducts"),
+        @Mapping(source="estado", target="status")
     })
     Category toCategory(Categoria categoria);
 
+    List<Category> toListCategorys(List<Categoria> ListCategorias);
+
     @InheritInverseConfiguration
+    @Mapping(target = "listProductos", ignore = true)
     Categoria toCategoria(Category category);
 }
