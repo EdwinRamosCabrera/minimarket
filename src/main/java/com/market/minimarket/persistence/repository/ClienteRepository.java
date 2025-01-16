@@ -14,8 +14,8 @@ import java.util.Optional;
 @Repository
 public class ClienteRepository implements ClientRepository {
 
-    ClienteCrudRepository clienteCrudRepository;
-    ClientMapper mapper;
+    private ClienteCrudRepository clienteCrudRepository;
+    private ClientMapper mapper;
 
     @Override
     public Optional<Client> getClient(int idClient) {

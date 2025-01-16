@@ -13,8 +13,8 @@ import java.util.Optional;
 @Repository
 public class CompraRepository implements PurchaseRepository {
 
-    CompraCrudRepository compraCrudRepository;
-    PurchaseMapper mapper;
+    private CompraCrudRepository compraCrudRepository;
+    private PurchaseMapper mapper;
 
     @Override
     public Optional<Purchase> getPurchase(int idPurchase) {

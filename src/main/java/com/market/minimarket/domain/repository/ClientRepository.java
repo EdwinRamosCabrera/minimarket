@@ -8,10 +8,14 @@ import java.util.Optional;
 public interface ClientRepository {
 
     Optional<Client> getClient(int idClient);
+
     Client save(Client client);
+
     Client update(Client client);
+
     void delete(int idClient);
 
     Optional<List<Client>> getAllCliente();
+
     Optional<List<Client>> getByBirthdate(Date date);
 }

@@ -13,6 +13,6 @@ public interface ProductRepository {
     void delete(int idProduct);
 
     Optional<List<Product>> getProductByCategory(int idCategory);
-    Optional<List<Product>> getAll();
+    Optional<List<Product>> getAllProduct();
     Optional<List<Product>> getScarseProduct(int quantity);
 }

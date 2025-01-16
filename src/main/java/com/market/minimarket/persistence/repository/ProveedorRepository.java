@@ -13,8 +13,8 @@ import java.util.Optional;
 @Repository
 public class ProveedorRepository implements SupplierRepository {
 
-    ProveedorCrudRepository proveedorCrudRepository;
-    SupplierMapper mapper;
+    private ProveedorCrudRepository proveedorCrudRepository;
+    private SupplierMapper mapper;
 
     @Override
     public Optional<Supplier> getSupplier(int idSupplier) {

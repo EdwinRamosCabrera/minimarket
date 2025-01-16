@@ -13,8 +13,8 @@ import java.util.Optional;
 @Repository
 public class CategoriaRepository implements CategoryRepository {
 
-    CategoriaCrudRepository categoriaCrudRepository;
-    CategoryMapper mapper;
+    private CategoriaCrudRepository categoriaCrudRepository;
+    private CategoryMapper mapper;
     @Override
     public Optional<Category> getCategory(int idCategory) {
         Optional<Categoria> categoria = categoriaCrudRepository.findById(idCategory);

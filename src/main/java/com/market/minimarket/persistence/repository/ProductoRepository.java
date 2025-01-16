@@ -13,13 +13,13 @@ import java.util.Optional;
 @Repository
 public class ProductoRepository implements ProductRepository {
 
-    ProductoCrudRepository productoCrudRepository;
-    ProductMapper mapper;
+    private ProductoCrudRepository productoCrudRepository;
+    private ProductMapper mapper;
 
     @Override
     public Optional<Product> getProduct(int idProduct) {
         Optional<Producto> producto = productoCrudRepository.findById(idProduct);
-        return producto.map(item -> mapper.toProduct(item));
+        return producto.map(prod -> mapper.toProduct(prod));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ProductoRepository implements ProductRepository {
     }
 
     @Override
-    public Optional<List<Product>> getAll() {
+    public Optional<List<Product>> getAllProduct() {
         List<Producto> productos = (List<Producto>) productoCrudRepository.findAll();
         return Optional.of(mapper.toListProducts(productos));
     }
@@ -51,7 +51,7 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> getScarseProduct(int quantity) {
-        List<Producto> productos = productoCrudRepository.findByCantidadIsLessThan(quantity);
-        return Optional.of(mapper.toListProducts(productos));
+        Optional<List<Producto>> productos = productoCrudRepository.findByCantidadIsLessThan(quantity);
+        return productos.map(producto -> mapper.toListProducts(producto));
     }
 }
