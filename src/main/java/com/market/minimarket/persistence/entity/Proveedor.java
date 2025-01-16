@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -13,19 +14,24 @@ import java.util.List;
 @NonNull
 @NoArgsConstructor
 @Entity
-@Table(name="categorias")
-public class Categoria {
+@Table(name="proveedores")
+public class Proveedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_categoria")
-    private Integer idCategoria;
+    @Column(name="id_proveedor")
+    private Integer idProveedor;
 
     private String nombre;
 
+    private String email;
+
+    private String telefono;
+
+    private String direccion;
+
     private String estado;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "proveedor")
     private List<Producto> listProductos;
-
 }

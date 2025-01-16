@@ -2,18 +2,24 @@ package com.market.minimarket.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
-@Entity
-@Getter
 @Setter
+@Getter
+@NonNull
+@NoArgsConstructor
+@Entity
 @Table(name="clientes")
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_cliente")
     private Integer idCliente;
 
     private String codigo;
@@ -26,10 +32,12 @@ public class Cliente {
 
     @Column(name="fecha_nacimiento")
     private Date fechaNacimiento;
+
     private String telefono;
 
-    private String direccion;
+    private String correo;
 
-    private String email;
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> listCompras;
 
 }
