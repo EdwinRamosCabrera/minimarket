@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Client {
 
     private String gender;
 
-    private Date birthdate;
+    private LocalDate birthdate;
 
     private String phone;
 

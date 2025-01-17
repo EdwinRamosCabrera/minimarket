@@ -19,8 +19,16 @@ public class ProductService {
     public Product save(Product product){
         return productRepository.save(product);
     }
-    public Product update(Product product){
-        return productRepository.update(product);
+    public Product update(int idProduct, Product productUpdate){
+        return getProduct(idProduct).map(product -> {
+            // product.setIdProduct(productUpdate.getIdProduct());
+            product.setName(productUpdate.getName());
+            product.setPrice(productUpdate.getPrice());
+            product.setStatus(productUpdate.getStatus());
+            product.setIdCategory(productUpdate.getIdCategory());
+            product.setIdSupplier(productUpdate.getIdSupplier());
+            return productRepository.save(product);
+        }).orElseThrow(()-> new RuntimeException("Producto no encontrado con el Id: " + idProduct));
     }
     public boolean delete(int idProduct){
         try {

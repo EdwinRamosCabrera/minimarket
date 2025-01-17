@@ -18,8 +18,15 @@ public class PurchaseProductService {
     public PurchaseProduct save(PurchaseProduct purchaseProduct){
         return purchaseProductRepository.save(purchaseProduct);
     }
-    public PurchaseProduct update(PurchaseProduct purchaseProduct){
-        return purchaseProductRepository.update(purchaseProduct);
+    public PurchaseProduct update(int idPurchaseProduct, PurchaseProduct purchaseProductUpdate){
+        return getPurchaseProduct(idPurchaseProduct).map(purchaseProduct -> {
+            // purchaseProduct.setIdPurchaseProduct(purchaseProductUpdate.getIdPurchaseProduct());
+            purchaseProduct.setIdPurchase(purchaseProductUpdate.getIdPurchase());
+            purchaseProduct.setIdProduct(purchaseProductUpdate.getIdProduct());
+            purchaseProduct.setQuantity(purchaseProductUpdate.getQuantity());
+            purchaseProduct.setStatus(purchaseProductUpdate.getStatus());
+            return purchaseProductRepository.save(purchaseProduct);
+        }).orElseThrow(()->new RuntimeException("PurchaseProduct no fue encontrado con el Id: " + idPurchaseProduct));
     }
     public boolean delete(int idPurchaseProduct){
         if(getPurchaseProduct(idPurchaseProduct).isPresent()){

@@ -9,7 +9,6 @@ public interface ProductRepository {
 
     Optional<Product> getProduct(int idProduct);
     Product save(Product product);
-    Product update(Product product);
     void delete(int idProduct);
 
     Optional<List<Product>> getProductByCategory(int idCategory);

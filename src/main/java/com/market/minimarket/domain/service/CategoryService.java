@@ -19,8 +19,13 @@ public class CategoryService {
     public Category save(Category category){
         return categoryRepository.save(category);
     }
-    public Category update(Category category){
-        return categoryRepository.update(category);
+    public Category update(int idCategory, Category categoryUpdate){
+        return getCategory(idCategory).map(category ->{
+            // category.setIdCategory(categoryUpdate.getIdCategory());
+            category.setName(categoryUpdate.getName());
+            category.setStatus(categoryUpdate.getStatus());
+            return categoryRepository.save(category);
+        }).orElseThrow(() -> new RuntimeException("Categoria no encontrada con id: " + idCategory));
     }
     public boolean delete(int idCategory){
         if(getCategory(idCategory).isPresent()){

@@ -9,7 +9,6 @@ public interface PurchaseProductRepository {
 
     Optional<PurchaseProduct> getPurchaseProduct(int idPurchaseProduct);
     PurchaseProduct save(PurchaseProduct purchaseProduct);
-    PurchaseProduct update(PurchaseProduct purchaseProduct);
     void delete(int idPurchaseProduct);
 
     Optional<List<PurchaseProduct>> getAllPurchaseProduct();

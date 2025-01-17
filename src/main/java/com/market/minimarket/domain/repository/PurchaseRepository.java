@@ -9,7 +9,6 @@ public interface PurchaseRepository {
 
     Optional<Purchase> getPurchase(int idPurchase);
     Purchase save(Purchase purchase);
-    Purchase update(Purchase purchase);
     void delete(int idPurchase);
 
     Optional<List<Purchase>> getAllPurchase();
