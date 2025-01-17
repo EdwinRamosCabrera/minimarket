@@ -4,6 +4,7 @@ import com.market.minimarket.domain.entity.Client;
 import com.market.minimarket.domain.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -19,8 +20,18 @@ public class ClientService {
     public Client save(Client client){
         return clientRepository.save(client);
     }
-    public Client update(Client client){
-        return clientRepository.update(client);
+    public Client update(int idCliente, Client clientUpdate){
+        return getClient(idCliente).map(client -> {
+           // client.setIdClient(clientUpdate.getIdClient());
+            client.setCode(clientUpdate.getCode());
+            client.setName(clientUpdate.getName());
+            client.setLastName(clientUpdate.getLastName());
+            client.setGender(clientUpdate.getGender());
+            client.setBirthdate(clientUpdate.getBirthdate());
+            client.setPhone(clientUpdate.getPhone());
+            client.setEmail(clientUpdate.getEmail());
+            return clientRepository.save(client);
+        }).orElseThrow(() -> new RuntimeException("Cliente no encontrado con Id: " + idCliente));
     }
     public boolean delete(int idClient){
         return getClient(idClient).map(client -> {
@@ -32,7 +43,7 @@ public class ClientService {
     public Optional<List<Client>> getAllCliente(){
         return clientRepository.getAllCliente();
     }
-    public Optional<List<Client>> getByBirthdate(Date date){
+    public Optional<List<Client>> getByBirthdate(LocalDate date){
         return clientRepository.getByBirthdate(date);
     }
 }

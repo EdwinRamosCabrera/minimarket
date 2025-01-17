@@ -6,7 +6,6 @@ import com.market.minimarket.persistence.crud.ProductoCrudRepository;
 import com.market.minimarket.persistence.entity.Producto;
 import com.market.minimarket.persistence.mapper.ProductMapper;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -21,23 +20,15 @@ public class ProductoRepository implements ProductRepository {
         Optional<Producto> producto = productoCrudRepository.findById(idProduct);
         return producto.map(prod -> mapper.toProduct(prod));
     }
-
     @Override
     public Product save(Product product) {
         Producto producto = mapper.toProducto(product);
         return mapper.toProduct(productoCrudRepository.save(producto));
     }
-
-    @Override
-    public Product update(Product product) {
-        return null;
-    }
-
     @Override
     public void delete(int idProduct) {
         productoCrudRepository.deleteById(idProduct);
     }
-
     @Override
     public Optional<List<Product>> getAllProduct() {
         List<Producto> productos = (List<Producto>) productoCrudRepository.findAll();
@@ -48,7 +39,6 @@ public class ProductoRepository implements ProductRepository {
         List<Producto> productos = productoCrudRepository.findByIdCategoriaOrderByIdCategoria(idCategory);
         return Optional.of(mapper.toListProducts(productos));
     }
-
     @Override
     public Optional<List<Product>> getScarseProduct(int quantity) {
         Optional<List<Producto>> productos = productoCrudRepository.findByCantidadIsLessThan(quantity);

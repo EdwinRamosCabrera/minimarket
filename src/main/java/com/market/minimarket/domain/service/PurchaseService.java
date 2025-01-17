@@ -19,8 +19,16 @@ public class PurchaseService {
     public Purchase save(Purchase purchase){
         return purchaseRepository.save(purchase);
     }
-    public Purchase update(Purchase purchase){
-        return purchaseRepository.update(purchase);
+    public Purchase update(int idPurchase, Purchase purchaseUpdate){
+        return getPurchase(idPurchase).map(purchase ->{
+            // purchase.setIdPurchase(purchaseUpdate.getIdPurchase());
+            purchase.setDate(purchaseUpdate.getDate());
+            purchase.setAmount(purchaseUpdate.getAmount());
+            purchase.setComment(purchaseUpdate.getComment());
+            purchase.setStatus(purchaseUpdate.getStatus());
+            purchase.setClient(purchaseUpdate.getClient());
+            return purchaseRepository.save(purchase);
+        }).orElseThrow(()-> new RuntimeException("Purchase no encontrado con Id: " + idPurchase));
     }
     public boolean delete(int idPurchase){
         return getPurchase(idPurchase).map(purchase -> {

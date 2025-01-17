@@ -9,7 +9,6 @@ public interface CategoryRepository {
 
     Optional<Category> getCategory(int idCategory);
     Category save(Category category);
-    Category update(Category category);
     void delete(int idCategory);
 
     Optional<List<Category>> getAllCategory();

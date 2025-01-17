@@ -7,6 +7,7 @@ import com.market.minimarket.persistence.entity.Cliente;
 import com.market.minimarket.persistence.mapper.ClientMapper;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -22,31 +23,22 @@ public class ClienteRepository implements ClientRepository {
         Optional<Cliente> cliente = clienteCrudRepository.findById(idClient);
         return cliente.map(item -> mapper.toclient(item));
     }
-
     @Override
     public Client save(Client client) {
         Cliente cliente = mapper.toCliente(client);
         return mapper.toclient(clienteCrudRepository.save(cliente));
     }
-
-    @Override
-    public Client update(Client client) {
-        return null;
-    }
-
     @Override
     public void delete(int idClient) {
         clienteCrudRepository.deleteById(idClient);
     }
-
     @Override
     public Optional<List<Client>> getAllCliente() {
         List<Cliente> clientes = (List<Cliente>) clienteCrudRepository.findAll();
         return Optional.of(mapper.toListClients(clientes));
     }
-
     @Override
-    public Optional<List<Client>> getByBirthdate(Date date) {
+    public Optional<List<Client>> getByBirthdate(LocalDate date) {
         List<Cliente> clientes = clienteCrudRepository.findByFechaNacimientoAfter(date);
         return Optional.of(mapper.toListClients(clientes));
     }

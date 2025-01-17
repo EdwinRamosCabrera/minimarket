@@ -28,11 +28,6 @@ public class CategoriaRepository implements CategoryRepository {
     }
 
     @Override
-    public Category update(Category category) {
-        return null;
-    }
-
-    @Override
     public void delete(int idCategory) {
         categoriaCrudRepository.deleteById(idCategory);
     }

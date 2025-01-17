@@ -19,8 +19,16 @@ public class SupplierService {
     public Supplier save(Supplier supplier){
         return supplierRepository.save(supplier);
     }
-    public  Supplier update(Supplier supplier){
-        return supplierRepository.update(supplier);
+    public  Supplier update(int idSupplier, Supplier supplierUpdate){
+        return getSupplier(idSupplier).map(supplier -> {
+            // supplier.setIdSupplier(supplierUpdate.getIdSupplier());
+            supplier.setName((supplierUpdate.getName()));
+            supplier.setEmail(supplierUpdate.getEmail());
+            supplier.setPhone(supplierUpdate.getPhone());
+            supplier.setAddress(supplierUpdate.getAddress());
+            supplier.setStatus(supplierUpdate.getStatus());
+            return supplierRepository.save(supplier);
+        }).orElseThrow(()-> new RuntimeException("Supplier no se encontro con Id: " + idSupplier));
     }
     public boolean delete(int idSupplier){
         try{

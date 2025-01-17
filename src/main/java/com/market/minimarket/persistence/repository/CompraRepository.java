@@ -6,7 +6,6 @@ import com.market.minimarket.persistence.crud.CompraCrudRepository;
 import com.market.minimarket.persistence.entity.Compra;
 import com.market.minimarket.persistence.mapper.PurchaseMapper;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -21,18 +20,11 @@ public class CompraRepository implements PurchaseRepository {
         Optional<Compra> compra = compraCrudRepository.findById(idPurchase);
         return compra.map(item -> mapper.toPurchase(item));
     }
-
     @Override
     public Purchase save(Purchase purchase) {
         Compra compra = mapper.toCompra(purchase);
         return mapper.toPurchase(compraCrudRepository.save(compra));
     }
-
-    @Override
-    public Purchase update(Purchase purchase) {
-        return null;
-    }
-
     @Override
     public void delete(int idPurchase) {
         compraCrudRepository.deleteById(idPurchase);
@@ -43,7 +35,6 @@ public class CompraRepository implements PurchaseRepository {
         List<Compra> compras = (List<Compra>) compraCrudRepository.findAll();
         return Optional.of(mapper.toListPurchases(compras));
     }
-
     @Override
     public Optional<List<Purchase>> getByAmount(Double amount) {
         List<Compra> compras = compraCrudRepository.findByMontoIsGreaterThan(amount);
