@@ -11,7 +11,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {ClientMapper.class})
+@Mapper(componentModel = "spring", uses = {ClientMapper.class, PurchaseProductMapper.class})
 public interface PurchaseMapper {
 
     @Mappings({
@@ -21,7 +21,8 @@ public interface PurchaseMapper {
             @Mapping(source="monto", target="amount"),
             @Mapping(source="comentario", target="comment"),
             @Mapping(source="idCliente", target="idClient"),
-            @Mapping(source="cliente", target="client")
+            @Mapping(source="cliente", target="client"),
+            @Mapping(source="listCompraProducto", target="listPurchaseProduct"),
     })
     Purchase toPurchase(Compra compra);
 

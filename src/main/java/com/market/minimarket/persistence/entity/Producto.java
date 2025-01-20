@@ -32,10 +32,10 @@ public class Producto {
     private String estado;
 
     @Column(name="id_categoria")
-    private String idCategoria;
+    private Integer idCategoria;
 
     @Column(name="id_proveedor")
-    private String idProveedor;
+    private Integer idProveedor;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
