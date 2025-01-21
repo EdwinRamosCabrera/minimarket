@@ -21,5 +21,4 @@ public class PurchaseProduct {
 
     private String status;
 
-    private Purchase purchase;
 }
