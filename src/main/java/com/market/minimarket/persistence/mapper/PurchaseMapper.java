@@ -20,6 +20,7 @@ public interface PurchaseMapper {
             @Mapping(source="metodoPago", target="paymentMethod"),
             @Mapping(source="monto", target="amount"),
             @Mapping(source="comentario", target="comment"),
+            @Mapping(source="estado", target="status"),
             @Mapping(source="idCliente", target="idClient"),
             @Mapping(source="cliente", target="client"),
             @Mapping(source="listCompraProducto", target="listPurchaseProduct"),
