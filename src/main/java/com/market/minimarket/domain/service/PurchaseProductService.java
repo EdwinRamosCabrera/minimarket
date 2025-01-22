@@ -2,6 +2,7 @@ package com.market.minimarket.domain.service;
 
 import com.market.minimarket.domain.entity.PurchaseProduct;
 import com.market.minimarket.domain.repository.PurchaseProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Optional;
 @Service
 public class PurchaseProductService {
 
+    @Autowired
     private PurchaseProductRepository purchaseProductRepository;
 
     public Optional<PurchaseProduct> getPurchaseProduct(int idPurchaseProduct){

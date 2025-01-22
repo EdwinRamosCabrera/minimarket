@@ -2,6 +2,7 @@ package com.market.minimarket.domain.service;
 
 import com.market.minimarket.domain.entity.Client;
 import com.market.minimarket.domain.repository.ClientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ import java.util.Optional;
 @Service
 public class ClientService {
 
+    @Autowired
     private ClientRepository clientRepository;
 
     public Optional<Client> getClient(int idClient){

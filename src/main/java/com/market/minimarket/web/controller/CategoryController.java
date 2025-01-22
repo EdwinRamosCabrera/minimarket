@@ -4,6 +4,7 @@ import com.market.minimarket.domain.entity.Category;
 import com.market.minimarket.domain.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,13 @@ import java.util.Optional;
 @RequestMapping("/category")
 public class CategoryController {
 
-    private CategoryService categoryService;
+    @Autowired
+    private final CategoryService categoryService;
+    @Autowired
+    public CategoryController(CategoryService categoryService){
+        this.categoryService = categoryService;
+    }
+
     @Operation(
             summary = "Muestra una categoría por Id",
             responses = {

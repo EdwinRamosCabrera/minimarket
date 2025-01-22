@@ -25,5 +25,4 @@ public class Supplier {
 
     private String status;
 
-    private List<Product> listProducts;
 }

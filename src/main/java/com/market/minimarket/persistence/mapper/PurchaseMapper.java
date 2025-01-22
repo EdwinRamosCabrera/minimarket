@@ -13,7 +13,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {ClientMapper.class, PurchaseProductMapper.class})
 public interface PurchaseMapper {
-
     @Mappings({
             @Mapping(source="idCompra", target="idPurchase"),
             @Mapping(source="fecha", target="date"),

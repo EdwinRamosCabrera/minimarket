@@ -5,6 +5,7 @@ import com.market.minimarket.domain.repository.SupplierRepository;
 import com.market.minimarket.persistence.crud.ProveedorCrudRepository;
 import com.market.minimarket.persistence.entity.Proveedor;
 import com.market.minimarket.persistence.mapper.SupplierMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +13,9 @@ import java.util.Optional;
 @Repository
 public class ProveedorRepository implements SupplierRepository {
 
+    @Autowired
     private ProveedorCrudRepository proveedorCrudRepository;
+    @Autowired
     private SupplierMapper mapper;
 
     @Override

@@ -9,9 +9,8 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses={CategoryMapper.class})
+@Mapper(componentModel = "spring", uses={CategoryMapper.class, SupplierMapper.class})
 public interface ProductMapper {
-
     @Mappings({
         @Mapping(source="idProducto", target="idProduct"),
         @Mapping(source="nombre", target="name"),
@@ -20,6 +19,8 @@ public interface ProductMapper {
         @Mapping(source="estado", target="status"),
         @Mapping(source="idCategoria", target="idCategory"),
         @Mapping(source="categoria", target="category"),
+        @Mapping(source="idProveedor", target="idSupplier"),
+        @Mapping(source="proveedor", target="supplier"),
     })
     Product toProduct(Producto producto);
 

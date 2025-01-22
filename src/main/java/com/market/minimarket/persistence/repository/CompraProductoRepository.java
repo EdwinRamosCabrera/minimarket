@@ -5,6 +5,7 @@ import com.market.minimarket.domain.repository.PurchaseProductRepository;
 import com.market.minimarket.persistence.crud.CompraProductoCrudRepository;
 import com.market.minimarket.persistence.entity.CompraProducto;
 import com.market.minimarket.persistence.mapper.PurchaseProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +13,9 @@ import java.util.Optional;
 @Repository
 public class CompraProductoRepository implements PurchaseProductRepository {
 
+    @Autowired
     private CompraProductoCrudRepository compraProductoCrudRepository;
+    @Autowired
     private PurchaseProductMapper mapper;
 
     @Override

@@ -19,5 +19,4 @@ public class Category {
 
     private String status;
 
-    private List<Product> listProducts;
 }

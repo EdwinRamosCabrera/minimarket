@@ -11,7 +11,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface SupplierMapper {
-
     @Mappings({
             @Mapping(source="idProveedor", target="idSupplier"),
             @Mapping(source="nombre", target="name"),

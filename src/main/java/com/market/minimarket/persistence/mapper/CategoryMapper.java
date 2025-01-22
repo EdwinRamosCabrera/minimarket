@@ -13,7 +13,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
-
     @Mappings({
         @Mapping(source="idCategoria", target="idCategory"),
         @Mapping(source="nombre", target="name"),

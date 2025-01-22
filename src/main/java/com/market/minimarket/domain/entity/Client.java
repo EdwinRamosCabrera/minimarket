@@ -31,5 +31,4 @@ public class Client {
 
     private String email;
 
-    private List<Purchase> listPurchase;
 }

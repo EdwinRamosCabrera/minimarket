@@ -4,6 +4,7 @@ import com.market.minimarket.domain.entity.Supplier;
 import com.market.minimarket.domain.service.SupplierService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,12 @@ import java.util.Optional;
 @RequestMapping("/supplier")
 public class SupplierController {
 
+    @Autowired
     private SupplierService supplierService;
-
-
+    @Autowired
+    public SupplierController(SupplierService supplierService){
+        this.supplierService = supplierService;
+    }
     @Operation(
             summary = "Muestra un proveedor por Id",
             responses = {

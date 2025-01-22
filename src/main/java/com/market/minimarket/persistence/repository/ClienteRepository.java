@@ -5,6 +5,7 @@ import com.market.minimarket.domain.repository.ClientRepository;
 import com.market.minimarket.persistence.crud.ClienteCrudRepository;
 import com.market.minimarket.persistence.entity.Cliente;
 import com.market.minimarket.persistence.mapper.ClientMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -14,8 +15,9 @@ import java.util.Optional;
 
 @Repository
 public class ClienteRepository implements ClientRepository {
-
+    @Autowired
     private ClienteCrudRepository clienteCrudRepository;
+    @Autowired
     private ClientMapper mapper;
 
     @Override

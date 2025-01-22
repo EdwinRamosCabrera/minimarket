@@ -4,6 +4,7 @@ import com.market.minimarket.domain.entity.Product;
 import com.market.minimarket.domain.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,12 @@ import java.util.Optional;
 @RequestMapping("/product")
 public class ProductController {
 
-    private ProductService productService;
+    @Autowired
+    private final ProductService productService;
+    @Autowired
+    public ProductController(ProductService productService){
+        this.productService = productService;
+    }
 
     @Operation(
             summary = "Muestra un producto por Id",

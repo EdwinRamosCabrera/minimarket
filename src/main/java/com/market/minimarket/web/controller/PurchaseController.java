@@ -5,6 +5,7 @@ import com.market.minimarket.domain.entity.Purchase;
 import com.market.minimarket.domain.service.PurchaseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,12 @@ import java.util.Optional;
 @RequestMapping("/purchase")
 public class PurchaseController {
 
-    private PurchaseService purchaseService;
+    @Autowired
+    private final PurchaseService purchaseService;
+    @Autowired
+    public PurchaseController(PurchaseService purchaseService){
+        this.purchaseService = purchaseService;
+    }
 
     @Operation(
             summary = "Muestra una compra por Id",

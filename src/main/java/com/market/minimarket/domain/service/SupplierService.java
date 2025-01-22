@@ -2,6 +2,7 @@ package com.market.minimarket.domain.service;
 
 import com.market.minimarket.domain.entity.Supplier;
 import com.market.minimarket.domain.repository.SupplierRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Service
 public class SupplierService {
 
+    @Autowired
     private SupplierRepository supplierRepository;
 
     public Optional<Supplier> getSupplier(int idSupplier){

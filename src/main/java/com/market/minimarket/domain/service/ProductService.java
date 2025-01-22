@@ -2,6 +2,7 @@ package com.market.minimarket.domain.service;
 
 import com.market.minimarket.domain.entity.Product;
 import com.market.minimarket.domain.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
+    @Autowired
     private ProductRepository productRepository;
 
     public Optional<Product> getProduct(int idProduct){

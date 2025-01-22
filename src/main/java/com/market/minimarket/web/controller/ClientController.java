@@ -4,6 +4,7 @@ import com.market.minimarket.domain.entity.Client;
 import com.market.minimarket.domain.service.ClientService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,12 @@ import java.util.Optional;
 @RequestMapping("/client")
 public class ClientController {
 
-    private ClientService clientService;
+    @Autowired
+    private final ClientService clientService;
+    @Autowired
+    public ClientController(ClientService clientService){
+        this.clientService = clientService;
+    }
     @Operation(
             summary = "Muestra un cliente por Id",
             responses = {

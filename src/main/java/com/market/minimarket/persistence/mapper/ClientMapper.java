@@ -11,7 +11,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ClientMapper {
-
     @Mappings({
             @Mapping(source="idCliente", target="idClient"),
             @Mapping(source="codigo", target="code"),

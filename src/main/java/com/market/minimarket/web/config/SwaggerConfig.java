@@ -12,7 +12,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("STORE Spring Boot 3 API")
+                        .title("Minimarket Spring Boot 3 API")
                         .version("0.1")
                         .description("Sample app Spring Boot 3 with Swagger")
                         .termsOfService("https://swagger.io/terms/")
